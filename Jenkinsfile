@@ -7,7 +7,7 @@ pipeline{
                                                         url: "https://github.com/rafed-99/football-club.git"
                                                 }
                         }
-                        stage("clean and package"){
+                        stage("clean + package"){
                                                     steps{
                                                             sh 'mvn clean'
                                                             sh 'mvn package'

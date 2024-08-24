@@ -1,0 +1,34 @@
+services:
+  postgres:
+    container_name: postgres_database_club
+    image: postgres
+    environment:
+      POSTGRES_DB: clubmanagement
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 41120725
+    ports:
+      - 5432:5432
+    networks:
+      - clubapp
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: club-app
+    image: rafed99/club-app
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/clubmanagement
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 41120725
+    networks:
+      - clubapp
+
+volumes:
+  postgres:
+
+networks:
+  clubapp:
+    driver: bridge

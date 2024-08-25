@@ -3,6 +3,9 @@ pipeline {
         registry = "rafed99/club-app" // Docker image name
         registryCredential = 'f03f3a82-448f-4ab2-89f8-01090e135fde' // Docker registry credentials ID
         dockerImage = '' // This will be set dynamically later
+        DB_URL = 'jdbc:postgresql://postgres:5432/clubmanagement'
+        DB_USER = 'postgres'
+        DB_PASSWORD = '41120725'
     }
     tools {
             maven 'Maven 3.8.1' // Make sure this matches the Maven installation name in Jenkins

@@ -11,7 +11,8 @@ pipeline {
         stage("Clean and Package") {
             steps {
                 script {
-                    docker.image('maven:3.8.1-amazoncorretto-17.0.6').inside {
+                    def mvn = docker.image('maven:3.8.1-amazoncorretto-17.0.6')
+                    mvn.inside {
                         sh 'mvn clean package'
                     }
                 }

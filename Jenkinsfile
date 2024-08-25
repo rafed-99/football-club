@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'maven:latest'
+        }
+    }
 
     stages {
         stage("Check GitHub") {
@@ -10,12 +14,7 @@ pipeline {
         }
         stage("Clean and Package") {
             steps {
-                script {
-                    def mvn = docker.image('maven:3.8.1-amazoncorretto-17.0.6')
-                    mvn.inside {
-                        sh 'mvn clean package'
-                    }
-                }
+                sh 'mvn clean package'
             }
         }
     }

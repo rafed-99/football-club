@@ -3,6 +3,7 @@ pipeline {
         registry = "rafed99/club-app" // Docker image name
         registryCredential = 'f03f3a82-448f-4ab2-89f8-01090e135fde' // Docker registry credentials ID
         dockerImage = '' // This will be set dynamically later
+        _JAVA_OPTIONS = "-Dorg.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true"
         PATH = '${env.PATH}:/usr/local/bin'
     }
     tools {

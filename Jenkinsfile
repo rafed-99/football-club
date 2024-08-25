@@ -3,7 +3,6 @@ pipeline {
         registry = "rafed99/club-app" // Docker image name
         registryCredential = 'f03f3a82-448f-4ab2-89f8-01090e135fde' // Docker registry credentials ID
         dockerImage = '' // This will be set dynamically later
-        args '-v /var/run/docker.sock:/var/run/docker.sock'
         DOCKER_COMPOSE_FILE = 'docker-compose.yml'
     }
     tools {

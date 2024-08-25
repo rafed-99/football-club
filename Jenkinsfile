@@ -1,4 +1,9 @@
 pipeline {
+environment {
+    registry = "rafed99/club-app"
+    registryCredential = 'f03f3a82-448f-4ab2-89f8-01090e135fde'
+    dockerImage = ''
+  }
     agent any
 
     stages {

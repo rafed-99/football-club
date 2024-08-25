@@ -9,14 +9,12 @@ pipeline {
             }
         }
         stage("Clean and Package") {
-            agent any{
-                docker {
-                    image 'maven:3.8.1-amazoncorretto-17.0.6'
-                    args '-v /root/.m2:/root/.m2'  // Optional: Mounting the local Maven repository
-                }
-            }
             steps {
-                sh 'mvn clean package'
+                script {
+                    docker.image('maven:3.8.1-amazoncorretto-17.0.6').inside {
+                        sh 'mvn clean package'
+                    }
+                }
             }
         }
     }

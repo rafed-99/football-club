@@ -17,11 +17,17 @@ pipeline {
                 git branch: "master", url: "https://github.com/rafed-99/football-club.git"
             }
         }
-        stage("Package") {
+        stage('Example') {
                     steps {
-                        sh 'docker-compose -f docker-compose.yml up -d'
-                        sh 'mvn clean package'
+                        sh 'echo "Running shell script"'
+                        sh 'docker-compose --version' // Example command
                     }
                 }
+//         stage("Package") {
+//                     steps {
+//                         sh 'docker-compose -f docker-compose.yml up -d'
+//                         sh 'mvn clean package'
+//                     }
+//                 }
     }
 }

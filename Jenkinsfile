@@ -15,10 +15,15 @@ pipeline {
                 git branch: "master", url: "https://github.com/rafed-99/football-club.git"
             }
         }
-        stage("Clean and Package") {
+        stage("Clean") {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean'
             }
         }
+        stage("Package") {
+                    steps {
+                        sh 'mvn package'
+                    }
+                }
     }
 }

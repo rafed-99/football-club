@@ -3,7 +3,7 @@ pipeline {
         registry = "rafed99/club-app" // Docker image name
         registryCredential = 'f03f3a82-448f-4ab2-89f8-01090e135fde' // Docker registry credentials ID
         dockerImage = '' // This will be set dynamically later
-        DOCKER_COMPOSE_FILE = 'docker-compose.yml'
+        docker_compose_file = 'docker-compose.yml'
     }
     tools {
             maven 'Maven 3.8.1' // Make sure this matches the Maven installation name in Jenkins
@@ -23,7 +23,7 @@ pipeline {
         }
         stage("Package") {
                     steps {
-                        sh 'docker-compose -f ${DOCKER_COMPOSE_FILE} up -d'
+                        sh 'docker-compose -f ${docker_compose_file} up -d'
                         sh 'mvn package'
                     }
                 }

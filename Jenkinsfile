@@ -1,18 +1,21 @@
 pipeline{
         agent any
-                stages{
-                        stage("check github"){
-                                                steps{
-                                                        git branch: "master",
-                                                        url: "https://github.com/rafed-99/football-club.git"
-                                                }
-                        }
-                        stage("clean + package"){
-                                                    steps{
-                                                            sh 'mvn clean'
-                                                            sh 'mvn package'
-                                                    }
-                        }
+                docker {
+                        image 'maven:3.8.1-amazoncorretto-17.0.6'
                 }
+                        stages{
+                                stage("check github"){
+                                                        steps{
+                                                                git branch: "master",
+                                                                url: "https://github.com/rafed-99/football-club.git"
+                                                             }
+                                                        }
+                                stage("clean + package"){
+                                                        steps{
+                                                                sh 'mvn clean'
+                                                                sh 'mvn package'
+                                                            }
+                                                        }
+                                }
 
 }

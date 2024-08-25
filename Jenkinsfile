@@ -4,9 +4,6 @@ pipeline {
         registryCredential = 'f03f3a82-448f-4ab2-89f8-01090e135fde' // Docker registry credentials ID
         dockerImage = '' // This will be set dynamically later
     }
-    tools {
-            maven 'Maven 3.8.1' // Make sure this matches the Maven installation name in Jenkins
-        }
     agent any
 
     stages {

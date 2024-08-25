@@ -16,6 +16,11 @@ pipeline {
                 git branch: "master", url: "https://github.com/rafed-99/football-club.git"
             }
         }
+        stage('Check Docker Compose') {
+                    steps {
+                        sh 'docker-compose --version'
+                    }
+        }
         stage("Clean") {
             steps {
                 sh 'mvn clean'

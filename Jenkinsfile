@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3.8.7-eclipse-temurin-17'  // Use the appropriate Maven version and JDK version
-            args '-v /root/.m2:/root/.m2'          // Optional: Mount local Maven repository to persist dependencies
+             image 'maven:3.8.7-eclipse-temurin-17'
+             args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
     stages {

@@ -1,10 +1,10 @@
 pipeline {
-    agent {
-        docker {
-             image 'maven:3.8.7-eclipse-temurin-17'
-             args '-v /var/run/docker.sock:/var/run/docker.sock'
+     agent {
+            docker {
+                image 'maven:3.8.7-eclipse-temurin-17'
+                args '-v /var/run/docker.sock:/var/run/docker.sock'
+            }
         }
-    }
     stages {
         stage('Check GitHub') {
             steps {

@@ -23,6 +23,13 @@ pipeline {
                                     }
                                 }
                 }
+                stage('Build and Run') {
+                            steps {
+                                script {
+                                    sh '/usr/local/bin/docker-compose -f docker-compose.yml up -d --build'
+                                }
+                            }
+                        }
 //         stage('Build and Run') {
 //                     steps {
 //                         script {

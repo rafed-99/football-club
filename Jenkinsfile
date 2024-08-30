@@ -12,6 +12,11 @@ pipeline {
                     url: 'https://github.com/rafed-99/football-club.git'
             }
         }
+        stage('Docker compose up'){
+            steps{
+                sh 'docker compose up -d'
+            }
+        }
         stage('Clean') {
             steps {
                 sh 'mvn clean'

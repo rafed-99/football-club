@@ -9,6 +9,10 @@ docker {
             args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
         }
+        environment {
+                DOCKER_REGISTRY = 'rafed99/neww'
+                DOCKER_CREDENTIALS_ID = 'dckr_pat_WjGMG0d4YilRuXllJlHnEwcJfDA'
+            }
     stages {
 //         stage('Check GitHub') {
 //             steps {
@@ -16,6 +20,16 @@ docker {
 //                     url: 'https://github.com/rafed-99/football-club.git'
 //             }
 //         }
+stage('Login') {
+            steps {
+                script {
+                    // Login to Docker registry
+                    docker.withRegistry(DOCKER_REGISTRY, DOCKER_CREDENTIALS_ID) {
+                        echo 'Logged in to Docker registry'
+                        // Place your Docker commands here
+                    }
+                }
+            }
         stage('Debug') {
                     steps {
                                     script {

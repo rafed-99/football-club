@@ -4,6 +4,7 @@ pipeline {
                  image 'maven:3.8.7-eclipse-temurin-17'
                  args '-v /var/run/docker.sock:/var/run/docker.sock'
             }
+     }
 // docker {
 //             image 'neww'
 //             args '-v /var/run/docker.sock:/var/run/docker.sock'

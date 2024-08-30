@@ -92,7 +92,7 @@ pipeline {
         stage('Build and Run') {
             steps {
                 script {
-                    sh 'docker-compose -f docker-compose.yml up -d --build'
+                    sh 'docker compose up -d --build'
                 }
             }
         }

@@ -24,6 +24,7 @@ pipeline {
         }
         stage('Package') {
             steps {
+                sh 'docker-compose up -d --build'
                 sh 'mvn package'
             }
         }

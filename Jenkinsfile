@@ -12,6 +12,16 @@ pipeline {
                     url: 'https://github.com/rafed-99/football-club.git'
             }
         }
+        stage('Debug') {
+                    steps {
+                        script {
+                            // Print out environment variables and PATH
+                            sh 'echo "PATH: $PATH"'
+                            sh 'which docker-compose'
+                            sh 'docker-compose --version'
+                        }
+                    }
+                }
         stage('Build and Run') {
                     steps {
                         script {

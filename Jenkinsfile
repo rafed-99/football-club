@@ -80,7 +80,7 @@ pipeline {
     agent {
         docker {
             image 'maven:3.8.7-eclipse-temurin-17'
-            args '--add-host=host.docker.internal:host-gatewaya
+            args '--add-host=host.docker.internal:host-gateway'
         }
     }
     stages {

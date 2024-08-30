@@ -14,13 +14,14 @@ pipeline {
         }
         stage('Debug') {
                     steps {
-                        script {
-                            sh 'echo "PATH: $PATH"'
-                            sh 'which docker-compose || echo "docker-compose not found"'
-                            sh 'ls -l /usr/local/bin/docker-compose'
-                            sh 'ls -l /usr/bin/docker-compose'
-                        }
-                    }
+                                    script {
+                                        // Print out PATH and check Docker Compose location
+                                        sh 'echo "PATH: $PATH"'
+                                        sh 'ls -l /usr/local/bin/docker-compose || echo "docker-compose not found in /usr/local/bin"'
+                                        sh 'ls -l /usr/bin/docker-compose || echo "docker-compose not found in /usr/bin"'
+                                        sh '/usr/local/bin/docker-compose --version || echo "docker-compose not executable"'
+                                    }
+                                }
                 }
 //         stage('Build and Run') {
 //                     steps {

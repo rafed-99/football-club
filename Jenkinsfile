@@ -15,10 +15,10 @@ pipeline {
         stage('Debug') {
                     steps {
                         script {
-                            // Print out environment variables and PATH
                             sh 'echo "PATH: $PATH"'
-                            sh 'which docker-compose'
-                            sh 'docker-compose --version'
+                                                sh 'ls -l /usr/local/bin/docker-compose'
+                                                sh 'ls -l /usr/bin/docker-compose'
+                                                sh 'docker-compose --version'
                         }
                     }
                 }

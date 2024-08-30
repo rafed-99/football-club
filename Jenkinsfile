@@ -22,14 +22,14 @@ pipeline {
                         }
                     }
                 }
-        stage('Build and Run') {
-                    steps {
-                        script {
-                            // Use explicit path to Docker Compose
-                            sh '/usr/local/bin/docker-compose -f docker-compose.yml up -d --build'
-                        }
-                    }
-                }
+//         stage('Build and Run') {
+//                     steps {
+//                         script {
+//                             // Use explicit path to Docker Compose
+//                             sh '/usr/local/bin/docker-compose -f docker-compose.yml up -d --build'
+//                         }
+//                     }
+//                 }
 //         stage('Docker compose up'){
 //             steps{
 //                 sh 'docker compose up -d'
@@ -40,11 +40,11 @@ pipeline {
                 sh 'mvn clean'
             }
         }
-        stage('Package') {
-            steps {
-                sh 'docker-compose up -d --build'
-                sh 'mvn package'
-            }
-        }
+//         stage('Package') {
+//             steps {
+//                 sh 'docker-compose up -d --build'
+//                 sh 'mvn package'
+//             }
+//         }
     }
 }

@@ -16,9 +16,9 @@ pipeline {
                     steps {
                         script {
                             sh 'echo "PATH: $PATH"'
-                                                sh 'ls -l /usr/local/bin/docker-compose'
-                                                sh 'ls -l /usr/bin/docker-compose'
-                                                sh 'docker-compose --version'
+                            sh 'which docker-compose || echo "docker-compose not found"'
+                            sh 'ls -l /usr/local/bin/docker-compose'
+                            sh 'ls -l /usr/bin/docker-compose'
                         }
                     }
                 }
